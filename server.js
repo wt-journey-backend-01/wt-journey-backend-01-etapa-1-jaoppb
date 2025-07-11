@@ -1,13 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import path from 'path';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
+app.use(express.static(path.join(import.meta.dirname, 'public')));
+
 app.get('/', (req, res) => {
-	res.send('Hello World!');
+	res.sendFile(path.join(import.meta.dirname, '/views/index.html'));
 });
 
 app.listen(PORT, () => {

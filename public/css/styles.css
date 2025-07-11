@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Angkor&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Angkor';
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		height: 8px;
+		background-color: #edbb50;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #a87e30;
+	}
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #edbb50;
+	height: 120px;
+	color: white;
+	width: 100%;
+
+	h1 {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		font-size: 3rem;
+	}
+}
+
+#navbar {
+	height: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: #e0ab48;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+
+		li {
+			font-size: 0.8rem;
+
+			a {
+				color: white;
+			}
+		}
+	}
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	max-width: 800px;
+	gap: 40px;
+}

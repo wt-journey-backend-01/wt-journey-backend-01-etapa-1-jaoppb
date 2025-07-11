@@ -1,0 +1,104 @@
+h2 {
+	color: #a87e30;
+	font-size: 1.5rem;
+}
+
+#menu {
+	width: 100%;
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding: 8px 12px;
+		gap: 12px;
+
+		li {
+			width: 240px;
+			flex: none;
+			box-shadow: 3px 4px 5px 3px rgba(0, 0, 0, 0.25);
+			padding-bottom: 8px;
+
+			img {
+				height: 200px;
+				width: 100%;
+				object-fit: cover;
+			}
+
+			div {
+				padding: 2px 8px;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.name {
+				color: #a87e30;
+				display: block;
+				font-size: 1.5rem;
+				flex-shrink: 0;
+			}
+
+			.ingredients {
+				color: #c9a25a;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				font-size: 0.75rem;
+			}
+		}
+	}
+}
+
+#suggestion-box {
+	display: flex;
+	width: 400px;
+	color: #a87e30;
+	flex-direction: column;
+	gap: 8px;
+
+	h2 {
+		text-align: center;
+		margin-bottom: 12px;
+	}
+
+	label {
+		position: relative;
+
+		span {
+			position: absolute;
+			left: 8px;
+			top: 4px;
+			background-color: white;
+			color: rgba(168, 126, 48, 0.7);
+			transition: color 0.2s ease, top 0.2s ease;
+
+			&:has(~ input:focus),
+			&:has(~ input:not(:placeholder-shown)) {
+				top: -16px;
+				color: #a87e30;
+			}
+		}
+
+		input {
+			width: 100%;
+			padding: 4px;
+			margin-bottom: 8px;
+			border: 1px solid #a87e30;
+			border-radius: 4px;
+			outline: none;
+			color: #a87e30;
+			padding: 6px 4px;
+		}
+	}
+
+	button {
+		color: white;
+		background-color: #a87e30;
+		border: none;
+		padding: 8px 0;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+}
