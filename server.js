@@ -1,13 +1,10 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
 import url from 'url';
 
-dotenv.config();
-
 const app = express();
-const PORT = process.env.PORT ?? 3000;
+const PORT = 3000;
 
 app.use(express.static(path.join(import.meta.dirname, 'public')));
 app.use(express.urlencoded());
