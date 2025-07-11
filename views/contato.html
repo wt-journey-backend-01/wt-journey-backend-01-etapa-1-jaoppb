@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>DevBurger</title>
+		<link rel="stylesheet" href="/css/styles.css" />
+		<link rel="stylesheet" href="/css/contact.css" />
+	</head>
+	<body>
+		<header>
+			<h1>
+				<a href="/">DevBurger</a>
+			</h1>
+			<nav id="navbar">
+				<ul>
+					<li>
+						<a href="/contato">Contato</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section id="suggestion">
+				<form class="shadowed-box" action="/contato" method="POST">
+					<h2>Enviar Messagem</h2>
+					<label>
+						<span>Nome</span>
+						<input
+							type="text"
+							name="nome"
+							minlength="3"
+							placeholder=" "
+							required
+						/>
+					</label>
+					<label>
+						<span>Email</span>
+						<input
+							type="email"
+							name="email"
+							minlength="10"
+							placeholder=" "
+							required
+						/>
+					</label>
+					<label>
+						<span>Assunto</span>
+						<input
+							type="text"
+							name="assunto"
+							minlength="4"
+							placeholder=" "
+							required
+						/>
+					</label>
+					<label>
+						<span>Mensagem</span>
+						<textarea
+							type="text"
+							name="mensagem"
+							minlength="20"
+							placeholder=" "
+							required
+						></textarea>
+					</label>
+					<button type="submit">Enviar</button>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>
