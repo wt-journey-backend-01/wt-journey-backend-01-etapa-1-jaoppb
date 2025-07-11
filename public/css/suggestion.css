@@ -1,0 +1,9 @@
+main {
+	justify-content: center;
+}
+
+#suggestion {
+	padding: 20px 32px;
+	box-shadow: 0 4px 4px 0 #a87e30;
+	color: #a87e30;
+}
