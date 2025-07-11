@@ -31,6 +31,12 @@ app.get('/contato-recebido', (req, res) => {
 	);
 });
 
+app.use((req, res) => {
+	res.status(404).sendFile(
+		path.join(import.meta.dirname, '/public/404.html'),
+	);
+});
+
 app.listen(PORT, () => {
 	console.log(`Servidor da DevBurger rodando em http://localhost:${PORT}`);
 });
