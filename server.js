@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -14,7 +15,23 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sugestao', (req, res) => {
-	res.sendFile(path.join(import.meta.dirname, '/views/sugestao.html'));
+	const buffer = fs.readFileSync(
+		path.join(import.meta.dirname, '/views/sugestao.html'),
+	);
+	const html = buffer.toString();
+	const populateWithRegex = (str, id, data) => {
+		return str.replace(
+			new RegExp(`(<span .*id="${id}".*>).*(</span>)`, 'g'),
+			`$1${data}$2`,
+		);
+	};
+
+	const populatedHtml = populateWithRegex(
+		populateWithRegex(html, 'name', req.query.nome || ''),
+		'ingredients',
+		req.query.ingredientes || '',
+	);
+	res.send(populatedHtml);
 });
 
 app.get('/contato', (req, res) => {
