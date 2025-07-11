@@ -1,0 +1,52 @@
+[
+	{
+		"id": 1,
+		"nome": "DevBurger Clássico",
+		"ingredientes": "Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"
+	},
+	{
+		"id": 2,
+		"nome": "Burger de Bacon",
+		"ingredientes": "Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue"
+	},
+	{
+		"id": 3,
+		"nome": "Commit Veggie",
+		"ingredientes": "Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas"
+	},
+	{
+		"id": 4,
+		"nome": "X-Tudo",
+		"ingredientes": "Pão de hambúrguer, Carne 150g, Presunto, Queijo mussarela, Ovo, Bacon, Alface, Tomate, Maionese"
+	},
+	{
+		"id": 5,
+		"nome": "Cheddar Duplo",
+		"ingredientes": "Pão australiano, Dois hambúrgueres 120g, Cheddar cremoso, Cebola crispy, Molho especial"
+	},
+	{
+		"id": 6,
+		"nome": "Frango Crocante",
+		"ingredientes": "Pão de batata, Filé de frango empanado, Alface, Tomate, Maionese temperada"
+	},
+	{
+		"id": 7,
+		"nome": "Lanche de Calabresa",
+		"ingredientes": "Pão francês, Linguiça calabresa fatiada, Queijo prato, Cebola grelhada, Molho de mostarda"
+	},
+	{
+		"id": 8,
+		"nome": "Vegetariano Frescor",
+		"ingredientes": "Pão integral, Hambúrguer de lentilha, Alface, Tomate, Cenoura ralada, Maionese de alho"
+	},
+	{
+		"id": 9,
+		"nome": "Picanha Artesanal",
+		"ingredientes": "Pão de brioche, Hambúrguer de picanha 180g, Queijo coalho, Alface, Tomate, Molho chimichurri"
+	},
+	{
+		"id": 10,
+		"nome": "Lanche Mineiro",
+		"ingredientes": "Pão francês, Lombo suíno, Queijo minas, Alface, Tomate, Molho de ervas"
+	}
+]
