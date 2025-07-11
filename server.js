@@ -63,7 +63,7 @@ app.post('/contato', (req, res) => {
 			query: {
 				nome: req.body.nome,
 				email: req.body.email,
-				subject: req.body.assunto,
+				assunto: req.body.assunto,
 				mensagem: req.body.mensagem,
 			},
 		}),
@@ -80,7 +80,7 @@ app.get('/contato-recebido', (req, res) => {
 	const populatedHtml = populateHtml(html, {
 		name: req.query.nome || '',
 		email: req.query.email || '',
-		subject: req.query.subject || '',
+		subject: req.query.assunto || '',
 		message: req.query.mensagem || '',
 	});
 	res.send(populatedHtml);
