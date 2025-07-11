@@ -34,10 +34,6 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(import.meta.dirname, '/views/index.html'));
 });
 
-app.all('/', (req, res) => {
-	res.sendStatus(403);
-});
-
 app.get('/sugestao', (req, res) => {
 	const html = readHtmlFile('sugestao');
 
@@ -46,10 +42,6 @@ app.get('/sugestao', (req, res) => {
 		ingredients: req.query.ingredientes || '',
 	});
 	res.send(populatedHtml);
-});
-
-app.all('/sugestao', (req, res) => {
-	res.sendStatus(403);
 });
 
 app.get('/contato', (req, res) => {
@@ -70,10 +62,6 @@ app.post('/contato', (req, res) => {
 	);
 });
 
-app.all('/contato', (req, res) => {
-	res.sendStatus(403);
-});
-
 app.get('/contato-recebido', (req, res) => {
 	const html = readHtmlFile('contato-recebido');
 
@@ -86,16 +74,8 @@ app.get('/contato-recebido', (req, res) => {
 	res.send(populatedHtml);
 });
 
-app.all('/contato-recebido', (req, res) => {
-	res.sendStatus(403);
-});
-
 app.get('/api/lanches', (req, res) => {
 	res.sendFile(path.join(import.meta.dirname, '/public/data/lanches.json'));
-});
-
-app.all('/api/lanches', (req, res) => {
-	res.sendStatus(403);
 });
 
 app.use((req, res) => {
