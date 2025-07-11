@@ -31,6 +31,10 @@ app.get('/contato-recebido', (req, res) => {
 	);
 });
 
+app.get('/api/lanches', (req, res) => {
+	res.sendFile(path.join(import.meta.dirname, '/public/data/lanches.json'));
+});
+
 app.use((req, res) => {
 	res.status(404).sendFile(
 		path.join(import.meta.dirname, '/public/404.html'),
