@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
+import url from 'url';
 
 dotenv.config();
 
@@ -9,28 +10,37 @@ const app = express();
 const PORT = process.env.PORT ?? 3000;
 
 app.use(express.static(path.join(import.meta.dirname, 'public')));
+app.use(express.urlencoded());
+
+function populateHtml(html, values) {
+	let result = html;
+	for (const [id, data] of Object.entries(values)) {
+		result = result.replace(
+			new RegExp(`(<span .*id="${id}".*>).*(</span>)`, 'g'),
+			`$1${data}$2`,
+		);
+	}
+	return result;
+}
+
+function readHtmlFile(name) {
+	const buffer = fs.readFileSync(
+		path.join(import.meta.dirname, `/views/${name}.html`),
+	);
+	return buffer.toString();
+}
 
 app.get('/', (req, res) => {
 	res.sendFile(path.join(import.meta.dirname, '/views/index.html'));
 });
 
 app.get('/sugestao', (req, res) => {
-	const buffer = fs.readFileSync(
-		path.join(import.meta.dirname, '/views/sugestao.html'),
-	);
-	const html = buffer.toString();
-	const populateWithRegex = (str, id, data) => {
-		return str.replace(
-			new RegExp(`(<span .*id="${id}".*>).*(</span>)`, 'g'),
-			`$1${data}$2`,
-		);
-	};
+	const html = readHtmlFile('sugestao');
 
-	const populatedHtml = populateWithRegex(
-		populateWithRegex(html, 'name', req.query.nome || ''),
-		'ingredients',
-		req.query.ingredientes || '',
-	);
+	const populatedHtml = populateHtml(html, {
+		name: req.query.nome || '',
+		ingredients: req.query.ingredientes || '',
+	});
 	res.send(populatedHtml);
 });
 
@@ -39,13 +49,29 @@ app.get('/contato', (req, res) => {
 });
 
 app.post('/contato', (req, res) => {
-	res.redirect('/contato-recebido');
+	res.redirect(
+		url.format({
+			pathname: '/contato-recebido',
+			query: {
+				nome: req.body.nome,
+				email: req.body.email,
+				subject: req.body.assunto,
+				mensagem: req.body.mensagem,
+			},
+		}),
+	);
 });
 
 app.get('/contato-recebido', (req, res) => {
-	res.sendFile(
-		path.join(import.meta.dirname, '/views/contato-recebido.html'),
-	);
+	const html = readHtmlFile('contato-recebido');
+
+	const populatedHtml = populateHtml(html, {
+		name: req.query.nome || '',
+		email: req.query.email || '',
+		subject: req.query.subject || '',
+		message: req.query.mensagem || '',
+	});
+	res.send(populatedHtml);
 });
 
 app.get('/api/lanches', (req, res) => {
